@@ -3,26 +3,44 @@
 ![Summary Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/raw/main/Pic%20Folder/Summary.png)
 ---
 
-## 📌 Project Overview
-This project delivers an Business Intelligence solution built in **Microsoft Power BI**. Designed to support executive decision-making, the dashboard evaluates operational health, unit economics, and growth drivers across **four core business pillars**:
-1. **Sales Performance:** Revenue momentum, YoY/MoM growth trends, and top-performing sales representatives/channels.
-2. **Marketing Campaign Effectiveness:** Customer acquisition efficiency (ROAS/POAS), transaction profitability, and post-campaign customer retention cohorts.
-3. **Inventory & Stock Management:** Stock on-hand valuation, liquidity, and annual inventory turnover benchmarks.
-4. **Product Portfolio Optimization:** SKU-level profitability, category contribution, and top-performing product rankings.
+## 🎯 Project Goal & Key Business Questions
+
+The objective of this project is to transform raw transactional data into an interactive Business Intelligence solution that empowers stakeholders to make data-driven decisions across sales, marketing, inventory, and product strategy.
+
+### Core Business Questions Addressed
+1. **Sales & Profitability Trends:** How are revenue and net profit performing over time (YoY and MoM), and what drives seasonal fluctuations?
+2. **Product Portfolio Performance:** Which products and categories contribute the most to top-line revenue and bottom-line profit?
+3. **Customer Value & Retention:** Which customer segments generate the highest lifetime value, and how effectively are we converting one-time buyers into repeat customers?
+4. **Marketing & Campaign ROI:** How effective are promotional campaigns in generating true net profit (`POAS` / `ROAS`) rather than just discounted volume?
+5. **Inventory Health & Velocity:** How efficiently is inventory turning over across SKUs, and where is working capital tied up in slow-moving stock?
+6. **Strategic Growth Opportunities:** What actionable opportunities—such as reallocating ad spend, repricing low-margin SKUs, or optimizing reorder timing—can be uncovered from the data?
 
 ---
+## 🎯 Project Outcomes
+* Built a scalable Power BI reporting solution.
+* Applied Star Schema data modeling principles.
+* Developed reusable DAX measures.
+* Delivered business-focused dashboards.
+* Generated actionable insights for decision-making.
+
 
 ## Data Modeling & ETL Pipeline (Power Query)
-To ensure fast query execution, eliminate bi-directional filtering ambiguity, and support accurate time-intelligence calculations, raw flat tables were normalized into a strict **Star Schema**:
 
+To ensure fast query execution, eliminate bi-directional filtering ambiguity, and support accurate time-intelligence calculations, raw flat tables were normalized into a strict **Star Schema**.
+
+Data preparation was performed using **Power Query**.
+
+### Transformation Steps
+* Handled missing values
+* Corrected data types
+* Standardized column names
+* Cleaned product and customer information
+* Applied business rules for reporting
 * **Table Normalization (Duplicate & Distinct Keys):** Duplicated raw flat sheets in Power Query to isolate descriptive attributes from transactional records, applying column-specific deduplication (`Table.Distinct` on primary ID keys) to guarantee clean `1:*` cardinality.
-* **Star Schema Architecture:** Built a central **`Fact_Table`** connected via single-direction, one-to-many (`1:*`) relationships to dedicated Dimension tables:
-  * **Core Dimensions:** `Product_Dim`, `Cus_Dim`, `Location_Dim`, `Channel_Dim`, `Representative_Dim`
-  * **Marketing & Order Dimensions:** `Promot_Dim`, `Segment_Dim`, `Gender_Dim`, `Payment_Dim`, `Status_Ship_Dim`, `Return_Dim`
+* **Star Schema Architecture:** Built a central **`Fact_Table`** connected via single-direction, one-to-many (`1:*`) relationships to dedicated Dimension tables
 * **Dedicated Date Table:** Created a continuous standalone **`Date Table`** marked as the official Date Table to power seamless **YoY** and **MoM** time-intelligence metrics.
 
-![Star_Schema Model](https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Pic%20Folder/Star%20Model.png)
-
+![Star_Schema Model](https://github.com/pforphu/Business-Analyst---Power-BI-/raw/main/Pic%20Folder/Star%20Model.png)
 ---
 
 ## Key DAX Measures & Analytical Pillars
@@ -33,6 +51,10 @@ To ensure fast query execution, eliminate bi-directional filtering ambiguity, an
 
 ![Summary Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/raw/main/Pic%20Folder/Summary.png)
 
+#### Sales Performance
+* Revenue is concentrated in a small number of high-performing products.
+* Several products generate strong sales but low profitability.
+* Revenue and profit trends show seasonal behavior.
 
 ### 2. Marketing Campaign & Customer Lifecycle Analytics
 * **Unit Economics & Spend Efficiency:**
@@ -45,14 +67,25 @@ To ensure fast query execution, eliminate bi-directional filtering ambiguity, an
 
 ![Campaign Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Pic%20Folder/Promotion.png)
 
+#### Campaign Performance
+* Some campaigns generate high transaction volume but lower margins.
+* Promotional effectiveness differs significantly by customer segment.
 
+#### Customer Behavior
+* A limited customer segment contributes the majority of sales.
+* Returning customers generate higher profitability compared to new customers.
+* Customer engagement varies across promotional campaigns.
+  
 ### 3. Inventory & Stock Control Analytics
 * **Stock Valuation & Volume:** Tracks real-time `Stock On-Hand` units and `Total Inventory Value` to monitor capital tied up in warehousing.
 * **Turnover Efficiency:** Calculates `Inventory Turnover` alongside the `Annual Average Inventory Turnover` benchmark to evaluate stock velocity and liquidity.
-* 
+  
 ![Inventory Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Pic%20Folder/Inventory.png)
 
-
+#### Inventory Performance
+* Certain products consistently maintain high inventory turnover.
+* Some inventory categories carry excess stock and may require attention.
+  
 ### 4. Product Portfolio Analytics
 * **SKU Profitability & Margin Contribution:** Evaluates net profit and gross margin across product categories and subcategories (`Product_Dim`) to identify high-performing vs. margin-dilutive items.
 
