@@ -1,5 +1,5 @@
 # 📊 End-to-End Business Performance & Growth Analytics (Power BI)
-![Intro_Page](https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Pic%20Folder/Intro.png)
+![Intro_Page](Pic Folder/Intro.png)
 
 ![Summary Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/raw/main/Pic%20Folder/Summary.png)
 ---
