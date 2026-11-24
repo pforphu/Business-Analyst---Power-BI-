@@ -100,7 +100,7 @@ Data preparation was performed using **Power Query**.
 
 ---
 
-## 💡 Strategic Business Value: What Do These Numbers Improve?
+## Strategic Business Value: What Do These Numbers Improve?
 
 Rather than merely reporting historical figures, each metric group is engineered to drive concrete operational improvements:
 
@@ -109,7 +109,34 @@ Rather than merely reporting historical figures, each metric group is engineered
 | **Sales Performance** | Top Sales, YoY & MoM Growth | **Spotting Growth & Seasonality:** Quickly identifies winning sales channels/reps and highlights slow MoM periods early so teams can adjust targets on time. |
 | **Marketing & Retention** | POAS, ROAS, Avg Profit/Txn, Cost/Txn, New vs. Returning, 1-Time vs. Repeat | **Smarter Ad Spend:** Focuses budget on campaigns that generate real net profit (POAS) and loyal repeat buyers, rather than one-time discount hunters. |
 | **Inventory & Stock** | Stock On-Hand, Inventory Value, Inventory Turnover, Annual Avg Turnover | **Better Cash Flow:** Flags slow-moving stock for clearance promotions and alerts teams to restock bestsellers before they run out. |
-| **Product Portfolio** | Top Products, Category Profit & Margin | **Sharper Product Focus:** Helps prioritize high-profit "star" products while cutting or repricing low-margin items. |
+| **Product Portfolio** | Top Products, Category Profit & Margin | **Sharper Product Focus:** Helps prioritize high-profit "star" products while cutting or repricing low-margin items. |-----
+
+## Key Challenges & Solutions
+
+### 1. Scaling a Flat Dataset into a Star Schema
+* **Challenge:** The raw dataset came as a single flat table, slowing down performance and risking ambiguous filter paths.
+* **Solution:** Normalized the data into a **Star Schema** (`Fact_Table` + dedicated Dimension tables) with clean single-direction (`1:*`) relationships.
+* **Impact:** Faster query speed, simpler DAX formulas, and a scalable data model.
+  
+### 2. Building Reliable Time Intelligence
+* **Challenge:** Raw transaction dates were incomplete, causing errors in Year-over-Year (YoY) and Month-over-Month (MoM) comparisons.
+* **Solution:** Built a dedicated **Date Table** and marked it as the official calendar in Power BI.
+* **Impact:** Delivered accurate YoY/MoM growth tracking and clearer seasonality insights across all reports.
+  
+### 3. Tracking New vs. Returning Customers Dynamically
+* **Challenge:** Counting unique customers in a selected period misclassified repeat buyers whenever users changed date filters.
+* **Solution:** Built dynamic DAX lifecycle logic comparing each customer's `First_Order_Date` against their latest purchase within the active filter context.
+* **Impact:** Accurately segmented **New**, **Returning**, **One-Time**, and **Repeat** buyers across any selected timeframe.
+* 
+### 4. Measuring True Marketing Profitability
+* **Challenge:** High-revenue campaigns were often driven by heavy discounts, hiding which campaigns actually made a profit.
+* **Solution:** Created profitability and customer-quality DAX measures (`POAS`, `ROAS`, `Avg Profit/Transaction`, `Cost/Transaction`, and post-campaign retention).
+* **Impact:** Helped shift marketing budgets from high-volume discount campaigns to genuinely profitable ones.
+
+### 5. Preventing Double-Counting in Inventory
+* **Challenge:** Inventory records repeated across transactions, causing simple sums to inflate stock levels and distort turnover rates.
+* **Solution:** Designed context-aware DAX measures that separate stock snapshots from sales transactions and validated results at the product level.
+* **Impact:** Eliminated duplicate stock counts and provided reliable **Inventory Turnover** metrics for restocking decisions.
 
 ---
 ## How to Explore This Project
