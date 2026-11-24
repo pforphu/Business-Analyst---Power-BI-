@@ -23,13 +23,13 @@ The objective of this project is to transform raw transactional data into an int
 * Delivered business-focused dashboards.
 * Generated actionable insights for decision-making.
 
-
+---
 ## Data Modeling & ETL Pipeline (Power Query)
 
 To ensure fast query execution, eliminate bi-directional filtering ambiguity, and support accurate time-intelligence calculations, raw flat tables were normalized into a strict **Star Schema**.
 
 Data preparation was performed using **Power Query**.
-
+---
 ### Transformation Steps
 * Handled missing values
 * Corrected data types
@@ -55,7 +55,7 @@ Data preparation was performed using **Power Query**.
 * Revenue is concentrated in a small number of high-performing products.
 * Several products generate strong sales but low profitability.
 * Revenue and profit trends show seasonal behavior.
-
+---
 ### 2. Marketing Campaign & Customer Lifecycle Analytics
 * **Unit Economics & Spend Efficiency:**
   * `Avg Profit / Transaction`: Tracks net profitability generated per order after product and discount/campaign costs.
@@ -75,6 +75,7 @@ Data preparation was performed using **Power Query**.
 * A limited customer segment contributes the majority of sales.
 * Returning customers generate higher profitability compared to new customers.
 * Customer engagement varies across promotional campaigns.
+---
   
 ### 3. Inventory & Stock Control Analytics
 * **Stock Valuation & Volume:** Tracks real-time `Stock On-Hand` units and `Total Inventory Value` to monitor capital tied up in warehousing.
@@ -85,7 +86,7 @@ Data preparation was performed using **Power Query**.
 #### Inventory Performance
 * Certain products consistently maintain high inventory turnover.
 * Some inventory categories carry excess stock and may require attention.
-  
+---  
 ### 4. Product Portfolio Analytics
 * **SKU Profitability & Margin Contribution:** Evaluates net profit and gross margin across product categories and subcategories (`Product_Dim`) to identify high-performing vs. margin-dilutive items.
 
@@ -104,6 +105,6 @@ Rather than merely reporting historical figures, each metric group is engineered
 | **Inventory & Stock** | Stock On-Hand, Inventory Value, Inventory Turnover, Annual Avg Turnover | **Better Cash Flow:** Flags slow-moving stock for clearance promotions and alerts teams to restock bestsellers before they run out. |
 | **Product Portfolio** | Top Products, Category Profit & Margin | **Sharper Product Focus:** Helps prioritize high-profit "star" products while cutting or repricing low-margin items. |
 
-
-
 ---
+## How to Explore This Project
+* Download the `.pbix` file in this repository and open it in **Microsoft Power BI Desktop** to inspect the Power Query transformations, Star Schema relationships, and DAX measures.
