@@ -113,4 +113,5 @@ Rather than merely reporting historical figures, each metric group is engineered
 
 ---
 ## How to Explore This Project
-* Download the `.pbix` file in this repository and open it in **Microsoft Power BI Desktop** to inspect the Power Query transformations, Star Schema relationships, and DAX measures.
+* Download the `Business Sale Report.pbix` file in this repository and open it in **Microsoft Power BI Desktop** to inspect the Power Query transformations, Star Schema relationships, and DAX measures.
+* https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Business%20Sale%20Report.pbix
