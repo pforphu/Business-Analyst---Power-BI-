@@ -1,5 +1,5 @@
 # 📊 End-to-End Business Performance & Growth Analytics (Power BI)
-
+![Intro_Page](https://github.com/pforphu/Business-Analyst---Power-BI-/blob/main/Pic%20Folder/Intro.png)
 ![Summary Dashboard](https://github.com/pforphu/Business-Analyst---Power-BI-/raw/main/Pic%20Folder/Summary.png)
 ---
 
@@ -22,14 +22,19 @@ The objective of this project is to transform raw transactional data into an int
 * Developed reusable DAX measures.
 * Delivered business-focused dashboards.
 * Generated actionable insights for decision-making.
+---
+## Interactive Dashboard Features
+* **Dynamic Cross-Filtering & Slicers:** Filter seamlessly across time periods (`Date Table`), product categories, sales channels, and customer segments.
+* **Page Navigation & Drill-Downs:** Switch between Executive Summary, Marketing Campaigns, Inventory, and Product views, or drill down from category level to individual SKU performance.
+* **Custom Tooltips:** Hover over key KPIs and trend lines to inspect secondary context (e.g., profit margin %, transaction counts, and prior-year benchmarks) without cluttering the main canvas.
+---
 
 ---
 ## Data Modeling & ETL Pipeline (Power Query)
 
 To ensure fast query execution, eliminate bi-directional filtering ambiguity, and support accurate time-intelligence calculations, raw flat tables were normalized into a strict **Star Schema**.
-
 Data preparation was performed using **Power Query**.
----
+
 ### Transformation Steps
 * Handled missing values
 * Corrected data types
